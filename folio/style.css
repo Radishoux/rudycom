@@ -1,0 +1,145 @@
+body
+{
+	margin: 0;
+	background: #424242;
+	overflow-x: hidden;
+}
+
+p 
+{
+	color: lightgrey;
+	font-size: 1rem;
+	margin: 10px;
+}
+
+a
+{
+	text-decoration:none;
+}
+
+.App-logo {
+	height: 20vmin;
+	pointer-events: none;
+	display: block;
+	margin: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+.greatings
+{
+	color: lightgrey;
+	margin: 50px;
+}
+
+.card
+{
+	width: fit-content;
+	border-radius: 10px;
+	padding: 10px;
+	position: relative;
+	width: 200px;
+	height: 180px;
+}
+
+.Cardbg
+{
+	width:200px; 
+	height:100px;
+}
+
+.container
+{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.Cardlang
+{
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	width: 50px;
+	height: 50px;
+}
+
+::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+::-webkit-scrollbar-thumb {
+	background: #e1e1e1;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+	background: #000000;
+}
+::-webkit-scrollbar-track {
+	background: #666666;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+	background: #666666;
+}
+::-webkit-scrollbar-track:active {
+	background: #333333;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+@media only screen and (min-device-width : 100px) and (max-device-width : 800px) {
+	.card
+	{
+		width: 600px;
+		height: 540px;
+		padding: 30px;
+	}
+
+	.Cardbg
+	{
+		width: 600px; 
+		height: 300px;
+	}
+	p 
+	{
+		font-size: 3.5rem;
+		margin: 10px;
+	}
+
+	.desc
+	{
+		font-size: 2rem;
+	}
+
+	.Cardlang
+	{
+		position: absolute;
+		top: 230px;
+		left: 30px;
+		width: 100px;
+		height: 100px;
+	}
+}
