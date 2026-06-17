@@ -78,7 +78,7 @@ bun run preview
 The site is configured for GitHub Pages at:
 
 ```txt
-https://rudyquinternet.github.io/rudycom/
+https://radishoux.github.io/rudycom/
 ```
 
 The deployment workflow lives in `.github/workflows/deploy.yml`. On every push

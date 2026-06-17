@@ -8,7 +8,7 @@ export const profile = {
   role: "Software Engineer",
   location: "Paris, France",
   email: "rudy.quinternet@gmail.com",
-  github: "https://github.com/rudyquinternet",
+  github: "https://github.com/Radishoux",
   website: "https://rudyquinternet.com",
   summary:
     "I build modern web, mobile, and cloud products with React, Node, TypeScript, Angular, Flutter, AWS, and GCP. I like practical engineering, clean interfaces, and tools that help teams move faster without losing quality.",
@@ -48,31 +48,31 @@ export const projects = [
     description:
       "A real-time location and chat app built across Node, React, and React Native.",
     stack: ["Node", "React", "React Native", "Realtime"],
-    demoUrl: "https://rudyquinternet.github.io/radar/",
-    sourceUrl: "https://github.com/rudyquinternet/radar",
+    demoUrl: "https://radishoux.github.io/radar/",
+    sourceUrl: "https://github.com/Radishoux/radar",
   },
   {
     name: "GrosRestau",
     description:
       "A restaurant web application with an Express backend and SQLite data layer.",
     stack: ["Node", "Express", "SQLite"],
-    demoUrl: "https://rudyquinternet.github.io/GrosRestau/",
-    sourceUrl: "https://github.com/rudyquinternet/GrosRestau",
+    demoUrl: "https://radishoux.github.io/GrosRestau/",
+    sourceUrl: "https://github.com/Radishoux/GrosRestau",
   },
   {
     name: "Mam Street Food",
     description:
       "A restaurant showcase website designed for a clean, fast browsing experience.",
     stack: ["Next.js", "React", "Web"],
-    demoUrl: "https://rudyquinternet.github.io/mam-street-food/",
-    sourceUrl: "https://github.com/rudyquinternet/mam-street-food",
+    demoUrl: "https://radishoux.github.io/mam-street-food/",
+    sourceUrl: "https://github.com/Radishoux/mam-street-food",
   },
   {
     name: "Rudy Portfolio",
     description:
       "A personal portfolio foundation built with Next.js and TypeScript.",
     stack: ["Next.js", "TypeScript"],
-    demoUrl: "https://rudyquinternet.github.io/rudy-portfolio/",
-    sourceUrl: "https://github.com/rudyquinternet/rudy-portfolio",
+    demoUrl: "https://radishoux.github.io/rudy-portfolio/",
+    sourceUrl: "https://github.com/Radishoux/rudy-portfolio",
   },
 ];
