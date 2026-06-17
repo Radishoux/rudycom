@@ -25,6 +25,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(103, 232, 249, 0.28);
+  color: #ffffff;
+}
+
 button,
 a {
   font: inherit;
@@ -49,9 +54,17 @@ button {
   min-height: 100vh;
   overflow: hidden;
   background:
+    linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px),
     radial-gradient(circle at 12% 10%, rgba(36, 189, 204, 0.22), transparent 28rem),
     radial-gradient(circle at 90% 15%, rgba(112, 81, 255, 0.24), transparent 30rem),
     linear-gradient(135deg, #06111f 0%, #101827 52%, #080d17 100%);
+  background-size:
+    4rem 4rem,
+    4rem 4rem,
+    auto,
+    auto,
+    auto;
 }
 
 .background {
@@ -90,6 +103,34 @@ button {
   height: 26rem;
   background: rgba(34, 197, 94, 0.08);
   animation-delay: -9s;
+}
+
+.background span:nth-child(4) {
+  top: 42%;
+  left: 62%;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  background: transparent;
+  animation-delay: -2s;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 1rem;
+  left: 1rem;
+  transform: translateY(-200%);
+  border-radius: 999px;
+  background: #e5edf7;
+  color: #06111f;
+  padding: 0.7rem 1rem;
+  font-weight: 800;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .header {
@@ -169,7 +210,7 @@ button {
   display: grid;
   min-height: calc(100vh - 5.5rem);
   align-items: center;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.82fr);
   gap: 4rem;
   padding: 4rem 0;
 }
@@ -226,8 +267,13 @@ button {
   margin-top: 2rem;
 }
 
+.compact-actions {
+  margin-top: 1.5rem;
+}
+
 .primary-button,
 .secondary-button,
+.ghost-link,
 .card-actions a,
 .text-link {
   display: inline-flex;
@@ -258,11 +304,58 @@ button {
   padding: 0 1.2rem;
 }
 
+.ghost-link {
+  min-height: auto;
+  color: #9be8ff;
+  padding: 0;
+}
+
 .primary-button:hover,
 .secondary-button:hover,
+.ghost-link:hover,
 .card-actions a:hover,
 .text-link:hover {
   transform: translateY(-2px);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.hero-proof div,
+.terminal-card,
+.focus-strip article,
+.principle-card {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(16px);
+}
+
+.hero-proof div {
+  border-radius: 1.25rem;
+  padding: 1rem;
+}
+
+.hero-proof strong {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.hero-proof span {
+  display: block;
+  margin-top: 0.4rem;
+  color: #a8b8ca;
+  font-size: 0.84rem;
 }
 
 .code-card,
@@ -283,6 +376,7 @@ button {
   overflow: hidden;
   padding: 1rem;
   transform: rotate(1deg);
+  isolation: isolate;
 }
 
 .code-card::before {
@@ -294,6 +388,7 @@ button {
 }
 
 .window-controls,
+.file-label,
 .code-card pre {
   position: relative;
   z-index: 1;
@@ -303,6 +398,14 @@ button {
   display: flex;
   gap: 0.45rem;
   padding: 0.55rem 0.65rem 1rem;
+}
+
+.file-label {
+  margin: -0.35rem 0 0.85rem;
+  padding-left: 0.65rem;
+  color: #67e8f9;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
 }
 
 .window-controls i {
@@ -340,6 +443,76 @@ button {
   display: inline-block;
   width: 2.5rem;
   color: #64748b;
+}
+
+.terminal-card {
+  border-radius: 1.5rem;
+  padding: 1.2rem;
+  color: #dbeafe;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.terminal-card p {
+  margin: 0.35rem 0;
+}
+
+.terminal-card p:not(.terminal-label)::before {
+  content: "> ";
+  color: #34d399;
+}
+
+.terminal-label {
+  color: #67e8f9;
+  font-family: inherit;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.focus-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 0 4rem;
+}
+
+.focus-strip article {
+  position: relative;
+  overflow: hidden;
+  min-height: 14rem;
+  border-radius: 1.5rem;
+  padding: 1.35rem;
+}
+
+.focus-strip article::after,
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 1rem 1rem auto;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  background: rgba(103, 232, 249, 0.08);
+  filter: blur(1px);
+}
+
+.focus-strip span {
+  display: block;
+  width: 2rem;
+  height: 0.22rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #67e8f9, #a78bfa);
+}
+
+.focus-strip h2 {
+  margin: 1.6rem 0 0.65rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.focus-strip p {
+  margin: 0;
+  color: #b8c7d9;
 }
 
 .about-page {
@@ -395,6 +568,14 @@ button {
   padding: 1.1rem;
   border-radius: 1.25rem;
   background: rgba(15, 23, 42, 0.5);
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.timeline-item:hover {
+  background: rgba(15, 23, 42, 0.72);
+  transform: translateX(4px);
 }
 
 .timeline-item span {
@@ -409,6 +590,45 @@ button {
 .timeline-item p,
 .project-card p {
   margin: 0;
+}
+
+.timeline-meta,
+.project-type {
+  color: #67e8f9;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.timeline-item h3 {
+  margin: 0.2rem 0 0.4rem;
+  color: #ffffff;
+  font-size: 1.15rem;
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.principle-card {
+  border-radius: 1.35rem;
+  padding: 1.1rem;
+}
+
+.principle-card span {
+  color: #67e8f9;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.principle-card p {
+  margin: 1.2rem 0 0;
+  color: #dbeafe;
+  font-weight: 700;
 }
 
 .skill-cloud,
@@ -447,6 +667,8 @@ button {
 }
 
 .project-card {
+  position: relative;
+  overflow: hidden;
   display: grid;
   min-height: 22rem;
   align-content: space-between;
@@ -466,6 +688,11 @@ button {
   margin: 0 0 0.75rem;
   color: #ffffff;
   font-size: 1.45rem;
+}
+
+.project-impact {
+  margin-top: 1rem !important;
+  color: #e2e8f0 !important;
 }
 
 .card-actions {
@@ -515,6 +742,8 @@ button {
   .header nav,
   .hero,
   .about-grid,
+  .focus-strip,
+  .principle-grid,
   .project-grid,
   .contact-card {
     display: grid;
@@ -543,7 +772,13 @@ button {
   }
 
   .about-grid,
+  .focus-strip,
+  .principle-grid,
   .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-proof {
     grid-template-columns: 1fr;
   }
 
@@ -564,6 +799,10 @@ button {
   .hero,
   .about-page {
     padding-top: 2rem;
+  }
+
+  .focus-strip {
+    padding-bottom: 2rem;
   }
 
   .code-card pre {
