@@ -1,6 +1,47 @@
 :root {
-  color: #e5edf7;
-  background: #07111f;
+  /* Base surfaces */
+  --bg-base: #0c0716;
+  --bg-shell-a: #0b0614;
+  --bg-shell-b: #171029;
+  --bg-shell-c: #0a0513;
+  --surface-1: rgba(24, 16, 38, 0.72);
+  --surface-soft: rgba(24, 16, 38, 0.48);
+  --surface-raised: rgba(30, 19, 48, 0.72);
+  --surface-2: rgba(30, 19, 48, 0.86);
+  --surface-code: #120a1e;
+
+  /* Borders */
+  --border-subtle: rgba(196, 181, 253, 0.16);
+  --border-medium: rgba(196, 181, 253, 0.24);
+  --border-accent: rgba(232, 121, 249, 0.3);
+  --border-accent-strong: rgba(232, 121, 249, 0.5);
+
+  /* Text */
+  --text: #f0e7f7;
+  --text-muted: #c3b3d6;
+  --text-dim: #b0a0c6;
+  --text-strong: #ffffff;
+
+  /* Accents */
+  --accent: #e879f9;
+  --accent-soft: #f0abfc;
+  --accent-strong: #c084fc;
+  --accent-violet: #a78bfa;
+  --accent-pink: #f472b6;
+
+  /* Code */
+  --code-text: #e9d5ff;
+  --code-lineno: #8b7aa3;
+
+  /* Effects */
+  --glow: rgba(232, 121, 249, 0.22);
+  --glow-strong: rgba(232, 121, 249, 0.72);
+  --selection: rgba(232, 121, 249, 0.28);
+  --gradient-brand: linear-gradient(135deg, var(--accent-soft), var(--accent-strong));
+  --button-text: #12071c;
+
+  color: var(--text);
+  background: var(--bg-base);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -26,8 +67,8 @@ body {
 }
 
 ::selection {
-  background: rgba(103, 232, 249, 0.28);
-  color: #ffffff;
+  background: var(--selection);
+  color: var(--text-strong);
 }
 
 button,
@@ -45,7 +86,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(77, 208, 225, 0.75);
+  outline: 3px solid var(--accent-soft);
   outline-offset: 4px;
 }
 
@@ -54,11 +95,11 @@ button {
   min-height: 100vh;
   overflow: hidden;
   background:
-    linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px),
-    radial-gradient(circle at 12% 10%, rgba(36, 189, 204, 0.22), transparent 28rem),
-    radial-gradient(circle at 90% 15%, rgba(112, 81, 255, 0.24), transparent 30rem),
-    linear-gradient(135deg, #06111f 0%, #101827 52%, #080d17 100%);
+    linear-gradient(rgba(196, 181, 253, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 181, 253, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 12% 10%, rgba(232, 121, 249, 0.15), transparent 28rem),
+    radial-gradient(circle at 90% 15%, rgba(167, 139, 250, 0.17), transparent 30rem),
+    linear-gradient(135deg, var(--bg-shell-a) 0%, var(--bg-shell-b) 52%, var(--bg-shell-c) 100%);
   background-size:
     4rem 4rem,
     4rem 4rem,
@@ -79,7 +120,7 @@ button {
   width: 18rem;
   height: 18rem;
   border-radius: 999px;
-  background: rgba(77, 208, 225, 0.1);
+  background: rgba(232, 121, 249, 0.07);
   filter: blur(2px);
   animation: float 14s ease-in-out infinite;
 }
@@ -92,7 +133,7 @@ button {
 .background span:nth-child(2) {
   right: 4%;
   bottom: 16%;
-  background: rgba(139, 92, 246, 0.11);
+  background: rgba(167, 139, 250, 0.08);
   animation-delay: -5s;
 }
 
@@ -101,7 +142,7 @@ button {
   bottom: -10%;
   width: 26rem;
   height: 26rem;
-  background: rgba(34, 197, 94, 0.08);
+  background: rgba(244, 114, 182, 0.06);
   animation-delay: -9s;
 }
 
@@ -110,7 +151,7 @@ button {
   left: 62%;
   width: 10rem;
   height: 10rem;
-  border: 1px solid rgba(125, 211, 252, 0.12);
+  border: 1px solid rgba(240, 171, 252, 0.14);
   background: transparent;
   animation-delay: -2s;
 }
@@ -122,8 +163,8 @@ button {
   left: 1rem;
   transform: translateY(-200%);
   border-radius: 999px;
-  background: #e5edf7;
-  color: #06111f;
+  background: var(--text);
+  color: var(--bg-base);
   padding: 0.7rem 1rem;
   font-weight: 800;
   transition: transform 160ms ease;
@@ -164,18 +205,18 @@ button {
   width: 2.5rem;
   height: 2.5rem;
   place-items: center;
-  border: 1px solid rgba(125, 211, 252, 0.34);
+  border: 1px solid var(--border-accent);
   border-radius: 0.95rem;
-  background: rgba(15, 23, 42, 0.72);
-  color: #7dd3fc;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.18);
+  background: var(--surface-2);
+  color: var(--accent-soft);
+  box-shadow: 0 0 30px var(--glow);
 }
 
 .header nav {
   padding: 0.45rem;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border: 1px solid var(--border-subtle);
   border-radius: 999px;
-  background: rgba(2, 6, 23, 0.42);
+  background: rgba(12, 7, 22, 0.42);
 }
 
 .header nav button,
@@ -183,7 +224,7 @@ button {
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: #b8c7d9;
+  color: var(--text-muted);
   padding: 0.65rem 0.9rem;
   transition:
     background 180ms ease,
@@ -194,8 +235,8 @@ button {
 .header nav button:hover,
 .header nav a:hover,
 .header nav .active {
-  background: rgba(125, 211, 252, 0.12);
-  color: #ffffff;
+  background: rgba(232, 121, 249, 0.14);
+  color: var(--text-strong);
   transform: translateY(-1px);
 }
 
@@ -219,7 +260,7 @@ button {
 .about-page h2,
 .contact-card h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: clamp(2.6rem, 7vw, 5.8rem);
   line-height: 0.95;
   letter-spacing: -0.07em;
@@ -232,7 +273,7 @@ button {
 
 .eyebrow {
   margin: 0 0 1rem;
-  color: #67e8f9;
+  color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -240,7 +281,12 @@ button {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #67e8f9, #a78bfa 52%, #f0abfc);
+  background: linear-gradient(
+    90deg,
+    var(--accent-soft),
+    var(--accent-strong) 52%,
+    var(--accent-violet)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -250,7 +296,7 @@ button {
 .about-grid p,
 .contact-card p {
   max-width: 43rem;
-  color: #b8c7d9;
+  color: var(--text-muted);
   font-size: 1.12rem;
 }
 
@@ -290,23 +336,25 @@ button {
 
 .primary-button {
   border: 0;
-  background: linear-gradient(135deg, #22d3ee, #8b5cf6);
-  color: #06111f;
+  background: var(--gradient-brand);
+  color: var(--button-text);
   padding: 0 1.25rem;
-  box-shadow: 0 18px 60px rgba(34, 211, 238, 0.25);
+  box-shadow: 0 18px 60px rgba(232, 121, 249, 0.25);
 }
 
 .secondary-button,
 .card-actions a {
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  background: rgba(15, 23, 42, 0.52);
-  color: #e5edf7;
+  border: 1px solid var(--border-medium);
+  background: var(--surface-1);
+  color: var(--text);
   padding: 0 1.2rem;
 }
 
 .ghost-link {
   min-height: auto;
-  color: #9be8ff;
+  border: 0;
+  background: transparent;
+  color: var(--accent-soft);
   padding: 0;
 }
 
@@ -333,9 +381,11 @@ button {
 .hero-proof div,
 .terminal-card,
 .focus-strip article,
-.principle-card {
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(15, 23, 42, 0.48);
+.principle-card,
+.credential-card,
+.personal-card {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-soft);
   backdrop-filter: blur(16px);
 }
 
@@ -346,7 +396,7 @@ button {
 
 .hero-proof strong {
   display: block;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: clamp(1.25rem, 3vw, 2rem);
   line-height: 1;
 }
@@ -354,20 +404,21 @@ button {
 .hero-proof span {
   display: block;
   margin-top: 0.4rem;
-  color: #a8b8ca;
+  color: var(--text-dim);
   font-size: 0.84rem;
 }
 
 .code-card,
 .glass-card,
 .project-card,
-.contact-card {
-  border: 1px solid rgba(148, 163, 184, 0.18);
+.contact-card,
+.availability-strip {
+  border: 1px solid var(--border-subtle);
   background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.52)),
-    rgba(2, 6, 23, 0.62);
+    linear-gradient(180deg, var(--surface-2), var(--surface-soft)),
+    rgba(12, 7, 22, 0.62);
   border-radius: 2rem;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(18px);
 }
 
@@ -383,7 +434,7 @@ button {
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(120deg, transparent, rgba(103, 232, 249, 0.23), transparent);
+  background: linear-gradient(120deg, transparent, rgba(232, 121, 249, 0.23), transparent);
   animation: scan 4s linear infinite;
 }
 
@@ -403,11 +454,13 @@ button {
 .file-label {
   margin: -0.35rem 0 0.85rem;
   padding-left: 0.65rem;
-  color: #67e8f9;
+  color: var(--accent);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.78rem;
 }
 
+/* Kept literally red/amber/green: these read as a macOS window signifier.
+   Recolouring them into the palette looks like a rendering bug. */
 .window-controls i {
   width: 0.78rem;
   height: 0.78rem;
@@ -427,8 +480,8 @@ button {
   margin: 0;
   padding: 1rem;
   border-radius: 1.35rem;
-  background: rgba(2, 6, 23, 0.72);
-  color: #dbeafe;
+  background: var(--surface-code);
+  color: var(--code-text);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   white-space: pre-wrap;
 }
@@ -442,13 +495,13 @@ button {
 .code-card p span {
   display: inline-block;
   width: 2.5rem;
-  color: #64748b;
+  color: var(--code-lineno);
 }
 
 .terminal-card {
   border-radius: 1.5rem;
   padding: 1.2rem;
-  color: #dbeafe;
+  color: var(--code-text);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -458,15 +511,65 @@ button {
 
 .terminal-card p:not(.terminal-label)::before {
   content: "> ";
-  color: #34d399;
+  color: var(--accent);
 }
 
 .terminal-label {
-  color: #67e8f9;
+  color: var(--accent);
   font-family: inherit;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+}
+
+/* Availability strip */
+
+.availability-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  border-color: var(--border-accent);
+}
+
+.availability-lead h2 {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--text-strong);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.availability-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.availability-facts div {
+  border-left: 2px solid var(--border-accent);
+  padding-left: 0.9rem;
+}
+
+.availability-facts dt {
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.availability-facts dd {
+  margin: 0.45rem 0 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.availability-strip .primary-button {
+  justify-self: start;
 }
 
 .focus-strip {
@@ -492,7 +595,7 @@ button {
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 999px;
-  background: rgba(103, 232, 249, 0.08);
+  background: rgba(232, 121, 249, 0.08);
   filter: blur(1px);
 }
 
@@ -501,18 +604,18 @@ button {
   width: 2rem;
   height: 0.22rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, #67e8f9, #a78bfa);
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent-violet));
 }
 
 .focus-strip h2 {
   margin: 1.6rem 0 0.65rem;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: 1.2rem;
 }
 
 .focus-strip p {
   margin: 0;
-  color: #b8c7d9;
+  color: var(--text-muted);
 }
 
 .about-page {
@@ -535,20 +638,22 @@ button {
 .stats-card div {
   padding: 1.2rem;
   border-radius: 1.25rem;
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--surface-raised);
 }
 
 .stats-card strong {
   display: block;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: 2rem;
   line-height: 1;
 }
 
 .stats-card span,
 .timeline-item p,
-.project-card p {
-  color: #b8c7d9;
+.project-card p,
+.personal-card p,
+.credential-card p {
+  color: var(--text-muted);
 }
 
 .section {
@@ -567,24 +672,24 @@ button {
   align-items: start;
   padding: 1.1rem;
   border-radius: 1.25rem;
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--surface-soft);
   transition:
     background 180ms ease,
     transform 180ms ease;
 }
 
 .timeline-item:hover {
-  background: rgba(15, 23, 42, 0.72);
+  background: var(--surface-raised);
   transform: translateX(4px);
 }
 
-.timeline-item span {
+.timeline-item > span {
   width: 0.8rem;
   height: 0.8rem;
   margin-top: 0.45rem;
   border-radius: 999px;
-  background: #67e8f9;
-  box-shadow: 0 0 30px rgba(103, 232, 249, 0.72);
+  background: var(--accent);
+  box-shadow: 0 0 30px var(--glow-strong);
 }
 
 .timeline-item p,
@@ -594,7 +699,7 @@ button {
 
 .timeline-meta,
 .project-type {
-  color: #67e8f9;
+  color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -603,8 +708,49 @@ button {
 
 .timeline-item h3 {
   margin: 0.2rem 0 0.4rem;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: 1.15rem;
+}
+
+.compact-stack {
+  margin-top: 0.9rem;
+  gap: 0.5rem;
+}
+
+.compact-stack span {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+}
+
+/* Education and certifications */
+
+.credential-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.credential-card {
+  border-radius: 1.35rem;
+  padding: 1.2rem;
+}
+
+.credential-card span {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.credential-card h3 {
+  margin: 0.6rem 0 0.35rem;
+  color: var(--text-strong);
+  font-size: 1.05rem;
+}
+
+.credential-card p {
+  margin: 0;
+  font-size: 0.92rem;
 }
 
 .principle-grid {
@@ -619,7 +765,7 @@ button {
 }
 
 .principle-card span {
-  color: #67e8f9;
+  color: var(--accent);
   font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.14em;
@@ -627,8 +773,24 @@ button {
 
 .principle-card p {
   margin: 1.2rem 0 0;
-  color: #dbeafe;
+  color: var(--code-text);
   font-weight: 700;
+}
+
+/* Stack */
+
+.skill-groups {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skill-group h3 {
+  margin: 0 0 0.75rem;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .skill-cloud,
@@ -640,10 +802,10 @@ button {
 
 .skill-cloud span,
 .stack-list span {
-  border: 1px solid rgba(125, 211, 252, 0.18);
+  border: 1px solid var(--border-accent);
   border-radius: 999px;
-  background: rgba(14, 165, 233, 0.1);
-  color: #dff8ff;
+  background: rgba(232, 121, 249, 0.07);
+  color: var(--code-text);
   padding: 0.65rem 0.9rem;
 }
 
@@ -657,7 +819,7 @@ button {
 }
 
 .text-link {
-  color: #67e8f9;
+  color: var(--accent);
 }
 
 .project-grid {
@@ -680,23 +842,58 @@ button {
 }
 
 .project-card:hover {
-  border-color: rgba(103, 232, 249, 0.5);
+  border-color: var(--border-accent-strong);
   transform: translateY(-5px);
 }
 
 .project-card h3 {
   margin: 0 0 0.75rem;
-  color: #ffffff;
+  color: var(--text-strong);
   font-size: 1.45rem;
 }
 
 .project-impact {
   margin-top: 1rem !important;
-  color: #e2e8f0 !important;
+  color: var(--text) !important;
+}
+
+.project-note {
+  margin: 0 !important;
+  color: var(--text-dim) !important;
+  font-size: 0.86rem;
+  font-style: italic;
 }
 
 .card-actions {
   justify-content: space-between;
+}
+
+/* Beyond the code */
+
+.personal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.personal-card {
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.personal-card h3 {
+  margin: 0 0 0.7rem;
+  color: var(--text-strong);
+  font-size: 1.2rem;
+}
+
+.personal-card p {
+  margin: 0;
+}
+
+.personal-card .text-link {
+  min-height: auto;
+  margin-top: 1rem;
 }
 
 .contact-card {
@@ -705,6 +902,157 @@ button {
   justify-content: space-between;
   gap: 2rem;
   padding: 2rem;
+}
+
+/* CV page */
+
+.cv-page {
+  padding: 3rem 0 6rem;
+}
+
+.cv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cv-toolbar .eyebrow {
+  margin: 0;
+}
+
+.cv-sheet {
+  border: 1px solid var(--border-subtle);
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, var(--surface-2), var(--surface-soft)),
+    rgba(12, 7, 22, 0.62);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.34);
+  padding: 2.5rem;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cv-header h1 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.cv-role {
+  margin: 0.4rem 0 0;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.cv-contact {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.cv-contact a {
+  color: var(--accent-soft);
+}
+
+.cv-section {
+  margin-top: 2.25rem;
+}
+
+.cv-section > h2 {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cv-section > p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 55rem;
+}
+
+.cv-entry {
+  padding: 0 0 1.25rem;
+}
+
+.cv-entry:not(:last-child) {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cv-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cv-entry-head h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.08rem;
+}
+
+.cv-entry-head span {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.cv-entry p {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
+}
+
+.cv-stack {
+  color: var(--text-dim) !important;
+  font-size: 0.86rem;
+}
+
+.cv-skills {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.cv-skills div {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.cv-skills dt {
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.cv-skills dd {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 @keyframes float {
@@ -774,12 +1122,18 @@ button {
   .about-grid,
   .focus-strip,
   .principle-grid,
-  .project-grid {
+  .project-grid,
+  .credential-grid,
+  .personal-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-proof {
     grid-template-columns: 1fr;
+  }
+
+  .availability-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .code-card {
@@ -788,6 +1142,19 @@ button {
 
   .contact-card {
     justify-items: start;
+  }
+
+  .cv-sheet {
+    padding: 1.5rem;
+  }
+
+  .cv-contact {
+    text-align: left;
+  }
+
+  .cv-skills div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 }
 
@@ -808,6 +1175,14 @@ button {
   .code-card pre {
     font-size: 0.82rem;
   }
+
+  .availability-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-strip {
+    padding: 1.5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -818,5 +1193,84 @@ button {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  :root {
+    color: #000000;
+    background: #ffffff;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .site-shell {
+    overflow: visible;
+    background: #ffffff;
+  }
+
+  .background,
+  .skip-link,
+  .header,
+  .cv-toolbar {
+    display: none !important;
+  }
+
+  .page {
+    width: 100%;
+  }
+
+  .cv-page {
+    padding: 0;
+  }
+
+  .cv-sheet {
+    border: 0;
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: none;
+    padding: 0;
+    backdrop-filter: none;
+  }
+
+  .cv-header {
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .cv-header h1,
+  .cv-entry-head h3,
+  .cv-skills dt {
+    color: #000000;
+  }
+
+  .cv-role,
+  .cv-section > h2 {
+    color: #6b21a8;
+  }
+
+  .cv-contact,
+  .cv-contact a,
+  .cv-section > p,
+  .cv-entry p,
+  .cv-skills dd,
+  .cv-entry-head span,
+  .cv-stack {
+    color: #333333 !important;
+  }
+
+  .cv-entry:not(:last-child) {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .cv-entry,
+  .cv-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 1.5cm;
   }
 }

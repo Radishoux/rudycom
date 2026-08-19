@@ -5,36 +5,51 @@ portfolio built with Bun, React, TypeScript, and Vite.
 
 The goal of the site is simple: give visitors a fast and pleasant way to
 understand who I am, what I build, which technologies I use, and where they can
-try my projects or download my CV.
+try my projects or read my CV.
 
 ## About Me
 
-I am Rudy Quinternet, a Paris-based software engineer with experience across web,
-mobile, cloud, AI-powered products, logistics tooling, and enterprise systems.
+I am Rudy Quinternet, a senior software engineer based near Driebergen-Zeist in
+the Netherlands, about fifteen minutes from Utrecht Centraal. I am available from
+**1 September 2026** and looking for backend or full-stack engineering roles in
+Utrecht and the surrounding area. I am an EU citizen, so no visa sponsorship is
+required.
 
-My stack is mostly React, TypeScript, Node, NestJS, Express, Next.js, Angular,
-Flutter, React Native, AWS, GCP, SQL, MongoDB, Cypress, Jest, and CI/CD. I like
-building useful software, polishing interfaces, and helping teams move from idea
-to working product with clean, practical engineering.
+My stack is mostly TypeScript, Node, NestJS, Express, React, Next.js, Java,
+Angular, Flutter, React Native, AWS, GCP, SQL, MongoDB, Cypress, Jest, and CI/CD.
+I have settled into a backend orientation while staying comfortable across the
+whole stack, and I am currently most interested in concurrency, throughput, and
+what it takes to keep a system healthy under load.
 
 My background includes:
 
-- Senior Software Engineer work at ALTEN on AI media tooling with React, Node,
-  NestJS, Next.js, AWS, MongoDB, MySQL, Jest, Scrum, Kanban, and CI/CD.
-- Software engineering work on Thales / NATO projects, moving from test
-  engineering into Angular, Java, C#, TypeScript, and hexagonal architecture.
-- Product and logistics application development for Ceva / CMA CGM with Angular,
-  Node, TypeScript, Flutter, SQL, MongoDB, and AWS.
+- Senior Software Engineer at Capgemini Engineering, full-stack with a strong
+  backend orientation, focused on multithreading, concurrency, and code
+  optimisation, while studying Rust, Go, and generative AI.
+- Senior Full-stack Software Engineer at ALTEN on AI-generated video, audio, and
+  text for medical training, including the Virtual Patients system sold to
+  hospitals in France.
+- Senior Full-stack Software Engineer at Thales, starting in test engineering and
+  moving into development on cleared NATO projects with Angular, Node,
+  TypeScript, and hexagonal architecture.
+- Medior Full-stack Software Engineer at CMA CGM building container logistics
+  tooling in Node, Angular, and Flutter, backed by AWS, Docker, and Kubernetes.
 - Freelance development and training across websites, apps, games, scripts,
   automation, cloud, and modern development tools.
+
+Away from the keyboard I climb and boulder, write fiction, and am working my way
+toward a functional level of Dutch.
 
 ## Website Features
 
 - Animated homepage with a dark developer aesthetic.
-- About page with a deeper profile, experience highlights, and technology stack.
+- An availability panel aimed at recruiters: location, start date, commute, and
+  work authorisation at a glance.
+- About page with a deeper profile, experience timeline, education and
+  certifications, grouped technology stack, and a personal section.
 - Project cards linking to live demos and GitHub source repositories.
-- Direct link to my GitHub profile.
-- Downloadable CV.
+- A built-in CV page at `#/cv`, rendered from the same data as the rest of the
+  site so it cannot drift, with a print stylesheet for saving to PDF.
 - Responsive layout for desktop, tablet, and mobile.
 - GitHub Pages deployment through GitHub Actions.
 
@@ -44,8 +59,19 @@ My background includes:
 - React for the interface.
 - TypeScript for type safety.
 - Vite for fast development and static production builds.
-- CSS animations and responsive custom styling.
+- CSS custom properties, animations, and responsive custom styling.
 - GitHub Actions and GitHub Pages for hosting.
+
+## Content
+
+Nearly everything on the site is data, not markup. `src/profile.ts` holds the
+profile, experience, education, certifications, skill groups, personal
+interests, and project list; the pages in `src/App.tsx` render from it. To
+update the site, edit that one file.
+
+The colour palette lives in CSS custom properties at the top of
+`src/styles.css`. Changing the accent family is a handful of token edits rather
+than a search through the stylesheet.
 
 ## Local Development
 
@@ -82,5 +108,5 @@ https://radishoux.github.io/rudycom/
 ```
 
 The deployment workflow lives in `.github/workflows/deploy.yml`. On every push
-to `main`, GitHub Actions installs dependencies with Bun, builds the Vite app,
-and publishes the generated `dist` folder to GitHub Pages.
+to `main` or `master`, GitHub Actions installs dependencies with Bun, builds the
+Vite app, and publishes the generated `dist` folder to GitHub Pages.
