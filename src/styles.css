@@ -281,15 +281,32 @@ button {
 }
 
 .gradient-text {
+  /* background-clip:text paints inside the inline box, and the h1 runs
+     line-height 0.95 against a larger font-size — so ascenders and descenders
+     fall outside the paint box and get cut off. inline-block plus symmetric
+     padding (cancelled by negative margin) grows the paint box without moving
+     anything in the layout. */
+  display: inline-block;
+  padding: 0.14em 0.04em;
+  margin: -0.14em -0.04em;
   background: linear-gradient(
-    90deg,
+    100deg,
     var(--accent-soft),
-    var(--accent-strong) 52%,
-    var(--accent-violet)
+    var(--accent-strong) 38%,
+    var(--accent-violet) 62%,
+    var(--accent-soft)
   );
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradientDrift 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    animation: none;
+  }
 }
 
 .lede,
@@ -432,10 +449,11 @@ button {
 
 .code-card::before {
   content: "";
+  pointer-events: none;
   position: absolute;
   inset: -2px;
-  background: linear-gradient(120deg, transparent, rgba(232, 121, 249, 0.23), transparent);
-  animation: scan 4s linear infinite;
+  background: linear-gradient(120deg, transparent, rgba(232, 121, 249, 0.2), transparent);
+  animation: scan 7s ease-in-out infinite;
 }
 
 .window-controls,
@@ -486,16 +504,55 @@ button {
   white-space: pre-wrap;
 }
 
-.code-card p {
+.code-card pre p {
+  display: flex;
+  align-items: baseline;
   margin: 0.9rem 0;
-  opacity: 0;
-  animation: typeIn 700ms ease forwards;
+  min-height: 1.5em;
+  transition: opacity var(--type-fade, 500ms) ease;
 }
 
-.code-card p span {
-  display: inline-block;
+.code-card.is-fading pre p {
+  opacity: 0;
+}
+
+.code-card .code-lineno {
+  flex: none;
   width: 2.5rem;
   color: var(--code-lineno);
+}
+
+.code-card .code-text {
+  white-space: pre-wrap;
+}
+
+.code-card .caret {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.05em;
+  margin-left: 0.1ch;
+  transform: translateY(0.16em);
+  background: var(--accent);
+  animation: caretBlink 1s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-card .caret {
+    animation: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .terminal-card {
@@ -590,6 +647,10 @@ button {
 .focus-strip article::after,
 .project-card::after {
   content: "";
+  /* Decorative only. Without pointer-events:none this 4.5rem circle sits on
+     top of the bottom-right of the card and swallows clicks on the Source
+     link underneath it. */
+  pointer-events: none;
   position: absolute;
   inset: auto 1rem 1rem auto;
   width: 4.5rem;
@@ -597,6 +658,13 @@ button {
   border-radius: 999px;
   background: rgba(232, 121, 249, 0.08);
   filter: blur(1px);
+  transition: transform 320ms ease, background 320ms ease;
+}
+
+.project-card:hover::after,
+.focus-strip article:hover::after {
+  transform: scale(1.35);
+  background: rgba(232, 121, 249, 0.14);
 }
 
 .focus-strip span {
@@ -843,7 +911,57 @@ button {
 
 .project-card:hover {
   border-color: var(--border-accent-strong);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 36px 110px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-accent);
+}
+
+.focus-strip article,
+.credential-card,
+.personal-card {
+  transition:
+    border-color 240ms ease,
+    background 240ms ease,
+    transform 240ms cubic-bezier(0.22, 0.7, 0.28, 1);
+}
+
+.focus-strip article:hover,
+.credential-card:hover,
+.personal-card:hover {
+  border-color: var(--border-accent);
+  background: var(--surface-raised);
+  transform: translateY(-4px);
+}
+
+.skill-cloud span,
+.stack-list span {
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.skill-cloud span:hover,
+.stack-list span:hover {
+  border-color: var(--border-accent-strong);
+  background: rgba(232, 121, 249, 0.18);
+  transform: translateY(-2px);
+}
+
+.brand-mark {
+  transition: transform 300ms cubic-bezier(0.22, 0.7, 0.28, 1), box-shadow 300ms ease;
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-6deg) scale(1.06);
+  box-shadow: 0 0 40px var(--glow-strong);
+}
+
+.timeline-item > span {
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.timeline-item:hover > span {
+  transform: scale(1.25);
 }
 
 .project-card h3 {
@@ -897,11 +1015,80 @@ button {
 }
 
 .contact-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 26rem);
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 2.5rem;
   padding: 2rem;
+  scroll-margin-top: 6rem;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.1rem;
+  background: var(--surface-soft);
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease,
+    background 200ms ease;
+}
+
+.contact-row:hover {
+  border-color: var(--border-accent-strong);
+  background: var(--surface-raised);
+  transform: translateX(3px);
+}
+
+.contact-label {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-value {
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.contact-value:hover {
+  color: var(--accent-soft);
+}
+
+.copy-button {
+  min-width: 5rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.copy-button:hover {
+  border-color: var(--border-accent-strong);
+  color: var(--accent-soft);
+  background: rgba(232, 121, 249, 0.1);
 }
 
 /* CV page */
@@ -1065,24 +1252,69 @@ button {
   }
 }
 
+/* Sweeps once, then rests off-screen for the remainder of the cycle rather
+   than snapping straight back to the start. */
 @keyframes scan {
-  from {
-    transform: translateX(-80%);
+  0% {
+    opacity: 0;
+    transform: translateX(-85%);
   }
-  to {
-    transform: translateX(80%);
+  6% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  48%,
+  100% {
+    opacity: 0;
+    transform: translateX(85%);
   }
 }
 
-@keyframes typeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
+@keyframes caretBlink {
+  0%,
+  45% {
     opacity: 1;
-    transform: translateY(0);
   }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradientDrift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Reveal-on-scroll, staggered by --i within a group.
+   Gated on .js-reveal, which the app adds only once it has an observer running.
+   Without it every [data-reveal] element stays plainly visible, so a failed or
+   idle observer can never leave the page blank. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 640ms ease,
+    transform 640ms cubic-bezier(0.22, 0.7, 0.28, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.copy-button.is-copied {
+  border-color: var(--border-accent-strong);
+  color: var(--accent-soft);
+  background: rgba(232, 121, 249, 0.16);
 }
 
 @media (max-width: 860px) {
@@ -1144,6 +1376,21 @@ button {
     justify-items: start;
   }
 
+  .contact-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-row {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    row-gap: 0.5rem;
+  }
+
+  .copy-button {
+    grid-column: 2;
+    justify-self: start;
+  }
+
   .cv-sheet {
     padding: 1.5rem;
   }
@@ -1193,6 +1440,13 @@ button {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  /* Reveal is opacity-based, so it must be forced on rather than merely
+     instant — otherwise content could stay at opacity 0. */
+  .js-reveal [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
