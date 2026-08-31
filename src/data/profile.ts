@@ -39,7 +39,7 @@ export const profile = {
     {
       title: "Full-stack delivery",
       description:
-        "React and TypeScript frontends over Node, NestJS and Express services, deployed to AWS and GCP.",
+        "React and TypeScript frontends over Node, NestJS and Express services, REST or GraphQL, deployed to AWS and GCP.",
     },
     {
       title: "Quality systems",
@@ -77,16 +77,16 @@ export const profile = {
       role: "Medior Full-stack Software Engineer",
       company: "CMA CGM",
       description:
-        "Built container logistics monitoring for a large Scrum and Kanban team: a Node and Angular web application plus its Flutter mobile adaptation. The role grew outward into full-stack, DevOps and backend work, which is where microservices and cloud infrastructure first got their hooks in.",
-      stack: ["Angular", "Node", "Flutter", "AWS", "Docker", "Kubernetes", "MongoDB"],
+        "Built container logistics monitoring for a large Scrum and Kanban team: a Node and Angular web application plus its Flutter mobile adaptation. Everything shipped through GitLab CI, which is where pipelines stopped being someone else's problem. The role grew outward into full-stack, DevOps and backend work, which is where microservices and cloud infrastructure first got their hooks in.",
+      stack: ["Angular", "Node", "Flutter", "AWS", "Docker", "Kubernetes", "GitLab CI", "MongoDB"],
     },
     {
       period: "Jun 2018 - Dec 2021",
       role: "Freelance Developer and Trainer",
       company: "Independent",
       description:
-        "Applications, websites, games, scripts and Excel automation for restaurants, startups, hospitals and schools. Also taught web development and best practices to engineering students, often in night classes for the ones who needed the extra time.",
-      stack: ["Node", "TypeScript", "Python", "Ruby", "Flutter", "AWS", "GCP", "WordPress"],
+        "Applications, websites, games, scripts and Excel automation for restaurants, startups, hospitals and schools, including GraphQL APIs and a handful of React Native apps. Also taught web development and best practices to engineering students, often in night classes for the ones who needed the extra time.",
+      stack: ["Node", "TypeScript", "GraphQL", "React Native", "Python", "Ruby", "Flutter", "AWS", "GCP", "WordPress"],
     },
   ],
   education: [
@@ -152,7 +152,7 @@ export const profile = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  { title: "Backend", items: ["Node", "NestJS", "Express", "Java", "Kotlin"] },
+  { title: "Backend", items: ["Node", "NestJS", "Express", "GraphQL", "Java", "Kotlin"] },
   {
     title: "Frontend",
     items: ["React", "Next.js", "TypeScript", "Angular", "Tailwind"],
@@ -165,7 +165,7 @@ export const skillGroups: SkillGroup[] = [
   { title: "Data", items: ["SQL", "PostgreSQL", "MongoDB"] },
   {
     title: "Quality",
-    items: ["Jest", "Cypress", "CI/CD", "GitHub Actions", "Jenkins"],
+    items: ["Jest", "Cypress", "CI/CD", "GitHub Actions", "GitLab CI", "Jenkins"],
   },
   { title: "Exploring", items: ["Rust", "Go", "LLMs"] },
 ];

@@ -15,8 +15,9 @@ the Netherlands, about fifteen minutes from Utrecht Centraal. I am available fro
 Utrecht and the surrounding area. I am an EU citizen, so no visa sponsorship is
 required.
 
-My stack is mostly TypeScript, Node, NestJS, Express, React, Next.js, Java,
-Angular, Flutter, React Native, AWS, GCP, SQL, MongoDB, Cypress, Jest, and CI/CD.
+My stack is mostly TypeScript, Node, NestJS, Express, GraphQL, React, Next.js,
+Java, Angular, Flutter, React Native, AWS, GCP, SQL, MongoDB, Cypress, Jest, and
+CI/CD on both GitHub Actions and GitLab CI.
 I have settled into a backend orientation while staying comfortable across the
 whole stack, and I am currently most interested in concurrency, throughput, and
 what it takes to keep a system healthy under load.
@@ -33,9 +34,11 @@ My background includes:
   moving into development on cleared NATO projects with Angular, Node,
   TypeScript, and hexagonal architecture.
 - Medior Full-stack Software Engineer at CMA CGM building container logistics
-  tooling in Node, Angular, and Flutter, backed by AWS, Docker, and Kubernetes.
+  tooling in Node, Angular, and Flutter, backed by AWS, Docker, and Kubernetes,
+  shipped through GitLab CI.
 - Freelance development and training across websites, apps, games, scripts,
-  automation, cloud, and modern development tools.
+  automation, cloud, and modern development tools, including GraphQL APIs and
+  React Native apps for client work.
 
 Away from the keyboard I climb and boulder, write fiction, and am working my way
 toward a functional level of Dutch.
