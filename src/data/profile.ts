@@ -8,7 +8,7 @@ export const profile = {
   role: "Senior Software Engineer",
   location: "Driebergen-Zeist, Netherlands",
   commute: "15 minutes from Utrecht Centraal by train",
-  availability: "Available from 1 September 2026",
+  availability: "Available now",
   workAuthorization: "EU citizen, no visa sponsorship required",
   lookingFor:
     "Backend or full-stack software engineering roles in Utrecht and the surrounding area.",

@@ -4,7 +4,7 @@ import { profile } from '../data/profile';
 import { navigate } from '../hooks/useRoute';
 
 const AVAILABILITY_FACTS = [
-  { term: 'Available', detail: '1 September 2026' },
+  { term: 'Available', detail: 'Now' },
   { term: 'Based in', detail: profile.location },
   { term: 'Commute', detail: profile.commute },
   { term: 'Right to work', detail: profile.workAuthorization },

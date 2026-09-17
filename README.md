@@ -10,8 +10,8 @@ try my projects or read my CV.
 ## About Me
 
 I am Rudy Quinternet, a senior software engineer based near Driebergen-Zeist in
-the Netherlands, about fifteen minutes from Utrecht Centraal. I am available from
-**1 September 2026** and looking for backend or full-stack engineering roles in
+the Netherlands, about fifteen minutes from Utrecht Centraal. I am available
+**now** and looking for backend or full-stack engineering roles in
 Utrecht and the surrounding area. I am an EU citizen, so no visa sponsorship is
 required.
 
