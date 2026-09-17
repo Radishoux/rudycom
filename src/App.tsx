@@ -61,7 +61,7 @@ const personSchema = {
   seeks: {
     '@type': 'Demand',
     name: profile.lookingFor,
-    availabilityStarts: '2026-09-01',
+    description: profile.availability,
     areaServed: { '@type': 'City', name: 'Utrecht' },
   },
   workLocation: { '@type': 'City', name: 'Utrecht' },

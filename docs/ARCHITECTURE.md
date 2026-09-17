@@ -19,7 +19,7 @@ Run `bun install`, then `bun run dev -- --host 127.0.0.1` for development. Run `
 
 ## Data flow and invariants
 
-Changing `profile.availability` updates the visible profile availability wherever it is consumed, including the home and CV views. The homepage facts panel has a separate compact value in `HomePage.tsx`. Static search and social descriptions in `index.html` and the README must stay aligned. The current wording is Available now, with Now in the facts panel.
+Changing `profile.availability` updates the visible profile availability wherever it is consumed, including the home and CV views, and the structured-data description in `App.tsx`. The homepage facts panel has a separate compact value in `HomePage.tsx`. Static search and social descriptions in `index.html` and the README must stay aligned. The current wording is Available now, with Now in the facts panel.
 
 Routes use URL hashes so GitHub Pages does not require server-side routing. Profile data is static and public; do not add credentials or private application notes. The CV uses the shared data and print styles rather than a separate generated document.
 
