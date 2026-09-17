@@ -6,9 +6,9 @@ export function CvPage() {
     <>
       <div className="cv-toolbar">
         <h1>Curriculum vitae</h1>
-        <button type="button" className="secondary-button" onClick={() => window.print()}>
-          Save as PDF
-        </button>
+        <a className="secondary-button" href={`${import.meta.env.BASE_URL}Rudy_Quinternet_Software_Engineer_CV.pdf`} download="Rudy_Quinternet_Software_Engineer_CV.pdf">
+          Download CV as PDF
+        </a>
       </div>
 
       <article className="cv-sheet">

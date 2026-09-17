@@ -21,7 +21,7 @@ Run `bun install`, then `bun run dev -- --host 127.0.0.1` for development. Run `
 
 Changing `profile.availability` updates the visible profile availability wherever it is consumed, including the home and CV views, and the structured-data description in `App.tsx`. The homepage facts panel has a separate compact value in `HomePage.tsx`. Static search and social descriptions in `index.html` and the README must stay aligned. The current wording is Available now, with Now in the facts panel.
 
-Routes use URL hashes so GitHub Pages does not require server-side routing. Profile data is static and public; do not add credentials or private application notes. The CV uses the shared data and print styles rather than a separate generated document.
+Routes use URL hashes so GitHub Pages does not require server-side routing. Profile data is static and public; do not add credentials or private application notes. The on-screen CV uses shared profile data and print styles. Its download button links to `public/Rudy_Quinternet_Software_Engineer_CV.pdf` using the Vite base path. Replace that file when the application CV changes; the downloadable PDF is maintained separately from the on-screen profile.
 
 ## Gotchas
 
