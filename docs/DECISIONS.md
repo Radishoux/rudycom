@@ -23,3 +23,21 @@ shorter headings, experience bullets and contextual skills. Replace decorative
 pseudo-code with a professional caption and remove its unused component, hook
 and CSS. Rejected a full redesign because the main problem was content accuracy
 and clarity.
+
+## 2026-10-07 - Confirmed dates and logistics group naming
+
+The owner confirmed Capgemini employment from 1 April 2025 to 1 September 2026;
+the public profile and generated CV now use those dates. This supersedes the
+earlier year-only choice. GEFCO's acquisition supports the owner's recollection
+of working there in 2022; it is not proof of a specific employment start month.
+
+Use GEFCO / CEVA with CMA CGM identified as the parent group. Rejected wording
+that implies CEVA sold GEFCO to CMA CGM. CMA CGM announced the acquisition on
+8 April 2022 and completed it in July 2022; CEVA announced the rebranding on
+10 January 2023. Sources: [CMA CGM](https://www.cmacgm-group.com/fr/actualites-media/cma-cgm-finalise-lacquisition-de-gefco)
+and [CEVA](https://www.cevalogistics.com/en/news-and-media/newsroom/ceva-creates-global-finished-vehicles-organization-from-former-gefco-operation).
+
+### 2026-10-07 — Confirmed Pitchboy NestJS experience
+
+Rudy clarified that the initial Pitchboy version used Node.js, TypeScript and React, and the later version sold to CHU Nice used NestJS. Record NestJS as professional experience at ALTEN/Pitchboy as well as in personal projects. Rejected limiting NestJS to personal work, and rejected attributing it to Capgemini without evidence. Exact scope and technical decisions remain interview follow-up topics.
+

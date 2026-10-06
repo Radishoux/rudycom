@@ -27,7 +27,7 @@ export const profile = {
   summary:
     "Software engineer since 2018, from freelance React websites to logistics, defence and conversational AI. I work mainly with TypeScript, Node.js and Java, alongside React and Angular. My experience spans development, testing, delivery and teaching.",
   longBio:
-    "I started freelancing in 2018, building React websites for restaurants. Since then, I have worked across logistics at GEFCO / CEVA / CMA CGM, defence at Thales, conversational AI at Pitchboy through ALTEN, and client assignments through Capgemini in the Netherlands. I have also taught at Epitech and in companies including Oxyl. I enjoy moving between backend work, the interfaces it supports and the testing that makes it dependable.",
+    "I started freelancing in 2018, building React websites for restaurants. Since then, I have worked across logistics at GEFCO (now CEVA, part of CMA CGM Group), defence at Thales, conversational AI at Pitchboy through ALTEN, and client assignments through Capgemini in the Netherlands. I have also taught at Epitech and in companies including Oxyl. I enjoy moving between backend work, the interfaces it supports and the testing that makes it dependable.",
   metrics: [
     { value: "2018", label: "started freelance development" },
     { value: "2022", label: "first permanent engineering role" },
@@ -53,7 +53,7 @@ export const profile = {
   ],
   experience: [
     {
-      period: "2025 - 2026",
+      period: "1 Apr 2025 - 1 Sep 2026",
       role: "Senior Product Software Engineer",
       company: "Capgemini Engineering",
       context: "Netherlands | Client assignments including Thales, IKEA and ENGIE",
@@ -69,10 +69,10 @@ export const profile = {
       company: "ALTEN",
       context: "France | Client: Pitchboy, conversational AI for healthcare training",
       bullets: [
-        "Developed visual conversational agents for hospital training, extending Pitchboy's work on voice assistants. The product was sold to CHU Nice.",
-        "Built the React frontend and Node.js / TypeScript backend, with AWS hosting, Jest tests and GitHub Actions for CI/CD.",
+        "Developed visual conversational agents for hospital training: first with React and Node.js / TypeScript, then a NestJS version sold to CHU Nice.",
+        "Used AWS hosting, Jest tests and GitHub Actions for CI/CD.",
       ],
-      stack: ["React", "TypeScript", "Node.js", "AWS", "Jest", "GitHub Actions"],
+      stack: ["React", "TypeScript", "Node.js", "NestJS", "AWS", "Jest", "GitHub Actions"],
     },
     {
       period: "2023",
@@ -80,7 +80,7 @@ export const profile = {
       company: "Thales",
       context: "France | NCOP team, defence software for NATO",
       bullets: [
-        "Developed defence software with Java, Angular and Node.js / TypeScript; completed a software delivery during the year-long NCOP assignment.",
+        "Developed defence software with Java, Angular and Node.js / TypeScript; completed a software delivery during the NCOP assignment in 2023.",
         "Contributed to test automation with Cypress and Jest within Jenkins delivery workflows.",
       ],
       stack: ["Java", "Angular", "TypeScript", "Node.js", "Cypress", "Jest", "Jenkins"],
@@ -88,10 +88,10 @@ export const profile = {
     {
       period: "2022",
       role: "Full-stack Software Engineer",
-      company: "GEFCO / CEVA / CMA CGM",
-      context: "France | Logistics team through changes of ownership",
+      company: "GEFCO / CEVA",
+      context: "France | Logistics, now part of CMA CGM Group",
       bullets: [
-        "First permanent engineering role, in a logistics team that continued through GEFCO, CEVA and CMA CGM.",
+        "Joined GEFCO in my first permanent engineering role in 2022. GEFCO was acquired by CMA CGM and later integrated into CEVA.",
         "Worked across a Node.js / TypeScript backend, Angular web frontend and Flutter mobile app, with Bitbucket CI/CD and occasional AWS tasks.",
       ],
       stack: ["TypeScript", "Node.js", "Angular", "Flutter", "Bitbucket", "AWS"],
@@ -165,7 +165,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Professional development",
     description: "Used across the client and employment work above.",
-    items: ["TypeScript", "Node.js", "Java", "React", "Angular", "Flutter", "Python"],
+    items: ["TypeScript", "Node.js", "NestJS", "Java", "React", "Angular", "Flutter", "Python"],
     professional: true,
   },
   {
