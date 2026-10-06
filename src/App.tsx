@@ -3,7 +3,7 @@ import { CvPage } from './pages/CvPage';
 import { HomePage } from './pages/HomePage';
 import { Header } from './components/Header';
 import { ParticleField } from './components/ParticleField';
-import { allSkills, profile } from './data/profile';
+import { professionalSkills, profile } from './data/profile';
 import { useReducedMotion } from './hooks/useReducedMotion';
 import { useReveal } from './hooks/useReveal';
 import { useRoute } from './hooks/useRoute';
@@ -51,12 +51,12 @@ const personSchema = {
     name: language.name,
     alternateName: language.level,
   })),
-  knowsAbout: allSkills,
+  knowsAbout: professionalSkills,
   hasOccupation: {
     '@type': 'Occupation',
     name: 'Software Engineer',
     occupationLocation: { '@type': 'City', name: 'Utrecht' },
-    skills: allSkills.join(', '),
+    skills: professionalSkills.join(', '),
   },
   seeks: {
     '@type': 'Demand',
@@ -90,6 +90,7 @@ export function App() {
 
       <footer className="footer">
         <p>{profile.name}</p>
+        <p>Built with OpenAI Codex</p>
         <p>{profile.availability}</p>
       </footer>
 

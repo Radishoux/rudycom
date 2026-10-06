@@ -1,28 +1,101 @@
 # Website architecture
 
-This is a static personal portfolio built with React, TypeScript and Vite. Bun manages dependencies and runs the build. GitHub Pages serves the generated files; there is no backend or database. The small stack supports a portfolio, project list and printable CV without a server.
+This static portfolio uses React and TypeScript for typed content and page
+composition, Vite for production builds and Bun for scripts and dependencies.
+GitHub Pages serves the output; there is no server or database. Python with
+ReportLab produces a searchable CV from the same data as the site; pypdf checks
+it. Browser runtime dependencies remain React only.
 
-## Run and deploy
+## Run, verify and deploy
 
-Run `bun install`, then `bun run dev -- --host 127.0.0.1` for development. Run `bun run build` for TypeScript checks and production output in `dist/`. Run `bun run preview -- --host 127.0.0.1` to inspect that output. The GitHub Actions workflow `.github/workflows/deploy.yml` builds and publishes pushes to `master` or `main` to GitHub Pages.
+From the repository root, with Bun and Python 3.12+ installed:
+
+```sh
+bun install --frozen-lockfile
+python -m pip install -r scripts/requirements.txt
+bun run dev -- --host 127.0.0.1
+bun run cv
+bun run build
+bun run preview -- --host 127.0.0.1
+```
+
+Vite uses `/rudycom/`, including locally. Development normally uses port 5173;
+preview uses 4173. `CV_PYTHON` can select another Python executable. For example
+in PowerShell: `$env:CV_PYTHON = 'C:\path\to\python.exe'`.
+
+The build generates and validates the PDF, runs both TypeScript configurations,
+and creates `dist/`. PDF checks reject missing career content, missing contact
+links and overflow beyond one page. Inspect the PDF visually too: extraction
+cannot detect every layout defect. Check home, work and CV at desktop and mobile
+widths and exercise the download.
+
+`.github/workflows/deploy.yml` installs Bun and Python dependencies, builds and
+publishes pushes to `master` or `main`. Verify the Pages workflow and public site
+after pushing; a local build is not a deployment.
 
 ## Structure and dependencies
 
-- `src/data/profile.ts` contains profile, experience, skills and project data.
-- `src/pages/` renders the home, work/about and CV views from that data.
-- `src/components/` contains shared presentation components and decorative effects.
-- `src/hooks/` contains routing and interaction hooks.
-- `src/App.tsx` composes the page and shared layout; `src/main.tsx` mounts React.
-- `src/styles.css` supplies screen, responsive, motion and print styling.
-- `index.html` contains static search and social metadata.
-- `vite.config.ts` supplies build settings, including the GitHub Pages base path.
+- `src/data/profile.ts`: authored career content, skill groups and projects.
+- `src/pages/`: home, work/about and CV views consuming shared content.
+- `src/components/`: navigation, portrait, particles, contact controls and Snake.
+- `src/hooks/`: hash routing, reveals, motion preferences and pointer tilt.
+- `src/App.tsx`: route composition, footer and public Person structured data.
+- `src/styles.css`: theme, layout, responsive, motion and print rules.
+- `index.html`: static search/social metadata; keep aligned with the profile.
+- `scripts/generate-cv.ts`: imports content with Bun and sends JSON to Python.
+- `scripts/render-cv.py`: PDF layout and post-generation validation.
+- `scripts/requirements.txt`: pinned generation and validation dependencies.
+- `public/`: portrait and generated `Rudy_Quinternet_Software_Engineer_CV.pdf`.
+- `dist/`: generated production output; never hand-edit.
 
-## Data flow and invariants
+Content does not import presentation. Pages and the generator import content;
+the Python renderer accepts a JSON snapshot and has no browser dependency.
 
-Changing `profile.availability` updates the visible profile availability wherever it is consumed, including the home and CV views, and the structured-data description in `App.tsx`. The homepage facts panel has a separate compact value in `HomePage.tsx`. Static search and social descriptions in `index.html` and the README must stay aligned. The current wording is Available now, with Now in the facts panel.
+## Content model and invariants
 
-Routes use URL hashes so GitHub Pages does not require server-side routing. Profile data is static and public; do not add credentials or private application notes. The on-screen CV uses shared profile data and print styles. Its download button links to `public/Rudy_Quinternet_Software_Engineer_CV.pdf` using the Vite base path. Replace that file when the application CV changes; the downloadable PDF is maintained separately from the on-screen profile.
+`profile.experience` is a reverse-chronological list. Each entry has company,
+role, period, context, bullets and stack. Company identifies the employer/team;
+context identifies clients and location. Freelance work includes 2018-2021 and
+subsequent teaching without inventing monthly dates.
 
-## Gotchas
+Use the same role names, periods and bullets on the work page, CV page and PDF.
+Use date precision supported by the owner's account. Never infer an employment
+start from a relocation date. Make later corrections in this module.
 
-Local changes are not deployed until the publishing branch is pushed and the Pages workflow succeeds. Check the rendered homepage and CV after changing shared profile fields. Keep the Vite base path compatible with `/rudycom/`. Animation, pointer and WebGL behaviour has reduced-motion handling; preserve it when editing visual components.
+Skill groups describe where technologies were used. Only `professional: true`
+groups supply `professionalSkills` in structured data. Personal and learning
+tools must not silently become professional claims. `Project.cv` selects a
+project for the PDF and on-screen CV. Project names are unique React keys;
+links are optional and must represent real destinations.
+
+PixelGuess API & mobile is the NestJS/React Native personal project; the Flutter
+prototype is separate. AI assistance is disclosed on the work page, footer and
+selected CV project. Keep confidential implementation details, recruiter
+correspondence, salary history and private source documents outside this repo.
+
+## End-to-end CV flow
+
+1. Edit `profile.ts`.
+2. `bun run build` invokes `generate-cv.ts`, which imports the profile and sends
+   JSON via stdin to Python; no intermediate personal-data file is written.
+3. ReportLab lays out the PDF with standard PDF fonts and clickable contacts.
+   pypdf reopens it and checks page count, shared text and link destinations.
+4. Vite builds the site and copies the PDF from `public/` into `dist/`.
+5. Pages publishes `dist/`. The `#/cv` button uses Vite's base URL to download
+   the PDF; the page itself renders the shared data in React.
+
+## Hard parts and gotchas
+
+PDF dates sit beside short headings; long periods get a separate line. Each
+employment entry stays together. A second page fails the build: edit wording or
+deliberately revise the layout, then inspect. Do not shrink text automatically
+or overwrite the PDF by hand. Generation is deterministic (`invariant=1`), so
+fixed content and dependencies produce repeatable bytes. Downloads is not a
+build input.
+
+Hash routing needs no server rewrites. Anchor navigation retries because targets
+may not be mounted yet. Reveals depend on viewport observation: scroll into a
+section before inspecting it. Reduced motion disables movement. WebGL and tilt
+avoid React state updates per frame. Print styling hides interactive elements
+and permits sections to span pages while keeping entries together. The PDF
+download supplies the intentionally laid-out one-page version.

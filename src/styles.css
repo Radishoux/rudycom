@@ -17,7 +17,6 @@
   --bg-raised: #120b1e;
   --surface: rgba(28, 18, 44, 0.58);
   --surface-strong: rgba(34, 22, 54, 0.86);
-  --surface-code: #120a1e;
 
   /* Lines */
   --line: rgba(196, 181, 253, 0.14);
@@ -72,7 +71,7 @@ html {
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   min-width: 320px;
   overflow-x: hidden;
   background:
@@ -117,7 +116,7 @@ button {
 
 .shell {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -245,6 +244,7 @@ button {
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.6rem;
   margin: 0 0 1.6rem;
   color: var(--accent-soft);
@@ -264,11 +264,15 @@ button {
 .hero-title {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.7rem, 6.4vw, 5rem);
+  font-size: clamp(2.7rem, 5.4vw, 4rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.045em;
   text-wrap: balance;
+}
+
+.hero-title > span {
+  display: block;
 }
 
 /* Emphasis by colour in the same family and weight. Not a gradient: gradient
@@ -297,6 +301,19 @@ button {
   display: grid;
   gap: 1.4rem;
   justify-items: center;
+}
+
+.hero-caption {
+  margin: 0.6rem 0 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.primary-button:active,
+.secondary-button:active {
+  transform: translateY(1px);
 }
 
 /* ------------------------------------------------------------- buttons --- */
@@ -401,74 +418,6 @@ button {
 .portrait-caption {
   color: var(--text-dim);
   font-size: 0.86rem;
-}
-
-/* --------------------------------------------------------- code sample --- */
-
-.code-sample {
-  width: min(100%, 340px);
-  padding: 1.1rem 1.2rem 1.3rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--surface-code);
-  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-  transition: opacity 500ms var(--ease-out);
-}
-
-.code-sample.is-fading {
-  opacity: 0;
-}
-
-.code-sample-label {
-  margin: 0 0 0.9rem;
-  color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-}
-
-.code-sample pre {
-  margin: 0;
-  display: grid;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-}
-
-.code-line {
-  display: flex;
-  align-items: baseline;
-  min-height: 1.35em;
-}
-
-.code-lineno {
-  flex: none;
-  width: 1.9rem;
-  color: #8b7aa3;
-}
-
-.code-text {
-  color: #e9d5ff;
-  white-space: pre-wrap;
-}
-
-.code-caret {
-  display: inline-block;
-  width: 0.5ch;
-  height: 1em;
-  margin-left: 0.15ch;
-  transform: translateY(0.15em);
-  background: var(--accent);
-  animation: caret 1s steps(1, end) infinite;
-}
-
-@keyframes caret {
-  0%,
-  45% {
-    opacity: 1;
-  }
-  55%,
-  100% {
-    opacity: 0;
-  }
 }
 
 /* ------------------------------------------------------- availability --- */
@@ -663,6 +612,45 @@ button {
   line-height: 1.65;
 }
 
+.experience-points {
+  margin: 0.8rem 0 1.2rem;
+  padding-left: 1.2rem;
+  max-width: 75ch;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.experience-points li + li {
+  margin-top: 0.55rem;
+}
+
+.experience-points li::marker {
+  color: var(--accent-strong);
+}
+
+.experience-context {
+  color: var(--text-dim) !important;
+  font-size: 0.88rem;
+}
+
+.section-note,
+.project-disclosure {
+  max-width: 70ch;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.section-note {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+}
+
+.project-disclosure {
+  margin: -0.6rem 0 2rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--accent-strong);
+}
+
 /* --------------------------------------------------------------- chips --- */
 
 .chip-list {
@@ -775,6 +763,7 @@ button {
 .project-links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.2rem;
   padding-top: 0.9rem;
   border-top: 1px solid var(--line);
@@ -1115,13 +1104,25 @@ button {
 .cv-entry-head span {
   color: var(--text-dim);
   font-size: 0.88rem;
-  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .cv-entry p {
   margin: 0.6rem 0 0;
   color: var(--text-muted);
   line-height: 1.62;
+}
+
+.cv-entry .cv-entry-role {
+  color: var(--accent-soft);
+  font-weight: 500;
+}
+
+.cv-skill-context {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--text-dim);
+  font-size: 0.86rem;
 }
 
 .cv-stack {
@@ -1137,7 +1138,7 @@ button {
 
 .cv-definitions div {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
+    grid-template-columns: 14rem minmax(0, 1fr);
   gap: 1rem;
 }
 
@@ -1439,12 +1440,17 @@ button {
     color: #333 !important;
   }
 
+  .experience-points,
+  .experience-context,
+  .cv-skill-context {
+    color: #333 !important;
+  }
+
   .cv-entry:not(:last-child) {
     border-bottom: 1px solid #ddd;
   }
 
-  .cv-entry,
-  .cv-section {
+  .cv-entry {
     break-inside: avoid;
     page-break-inside: avoid;
   }

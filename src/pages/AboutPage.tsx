@@ -48,7 +48,7 @@ export function AboutPage() {
   return (
     <>
       <section className="intro" data-reveal>
-        <h1>Engineer, builder, constant learner.</h1>
+        <h1>Eight years of building, testing and teaching.</h1>
         <p className="intro-body">{profile.longBio}</p>
         <div className="intro-metrics">
           {profile.metrics.map((metric, index) => (
@@ -78,7 +78,10 @@ export function AboutPage() {
                   {item.role}
                   <span className="timeline-company">{item.company}</span>
                 </h3>
-                <p>{item.description}</p>
+                <p className="experience-context">{item.context}</p>
+                <ul className="experience-points">
+                  {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                </ul>
                 <ul className="chip-list">
                   {item.stack.map((tech) => (
                     <li key={tech}>{tech}</li>
@@ -92,12 +95,13 @@ export function AboutPage() {
 
       <section className="block" aria-labelledby="stack-heading">
         <h2 id="stack-heading" data-reveal>
-          Stack
+          Where I use each technology
         </h2>
         <div className="stack-grid">
           {skillGroups.map((group, index) => (
             <div key={group.title} data-reveal style={stagger(index)}>
               <h3>{group.title}</h3>
+              <p className="section-note">{group.description}</p>
               <ul className="chip-list">
                 {group.items.map((skill) => (
                   <li key={skill}>{skill}</li>
@@ -111,12 +115,13 @@ export function AboutPage() {
       <section className="block" aria-labelledby="projects-heading">
         <div className="block-head">
           <h2 id="projects-heading" data-reveal>
-            Projects
+            Personal projects
           </h2>
           <a className="text-link" href={profile.github} target="_blank" rel="noreferrer">
             All repositories
           </a>
         </div>
+        <p className="project-disclosure" data-reveal>{profile.aiDisclosure}</p>
         <div className="project-grid">
           {projects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
@@ -178,7 +183,7 @@ export function AboutPage() {
 
       <section className="contact" id="contact" data-reveal>
         <div>
-          <h2>Let us build something useful.</h2>
+          <h2>Let’s talk about your team.</h2>
           <p>
             {profile.availability}, looking in Utrecht and the surrounding area. Email is
             the quickest way to reach me.

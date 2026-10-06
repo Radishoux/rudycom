@@ -1,124 +1,134 @@
 export type SkillGroup = {
   title: string;
+  description: string;
   items: string[];
+  professional: boolean;
 };
 
 export const profile = {
   name: "Rudy Quinternet",
   role: "Senior Software Engineer",
+  specialism: "Backend & full-stack",
   location: "Driebergen-Zeist, Netherlands",
   commute: "15 minutes from Utrecht Centraal by train",
   availability: "Available now",
   workAuthorization: "EU citizen, no visa sponsorship required",
-  lookingFor:
-    "Backend or full-stack software engineering roles in Utrecht and the surrounding area.",
+  lookingFor: "Looking for a backend or full-stack role in the Utrecht region.",
   email: "rudy.quinternet@gmail.com",
+  phone: "+31 6 27108005",
+  website: "https://radishoux.github.io/rudycom/",
   github: "https://github.com/Radishoux",
   linkedin: "https://www.linkedin.com/in/rudy-quinternet/",
   headline: {
-    before: "Backend-leaning full-stack engineer building ",
-    highlight: "reliable",
-    after: " web, mobile, and cloud software.",
+    before: "Software engineer. ",
+    highlight: "Backend focus.",
+    after: " Full-stack perspective.",
   },
   summary:
-    "I build and harden backend services and the interfaces on top of them, mostly in TypeScript, Node and Java, backed by AWS. I care about clean APIs, fast feedback loops, and pragmatic engineering that lets a team ship without losing quality.",
+    "Software engineer since 2018, from freelance React websites to logistics, defence and conversational AI. I work mainly with TypeScript, Node.js and Java, alongside React and Angular. My experience spans development, testing, delivery and teaching.",
   longBio:
-    "I am a software engineer based near Driebergen-Zeist in the Netherlands, with eight years of experience and four of them in permanent engineering roles. My work has moved across AI media tooling, defence and NATO systems, logistics platforms, and cloud-backed products, and I have gradually settled into a backend orientation while staying comfortable across the whole stack. What holds my attention now is concurrency, throughput, and the parts of a system that decide whether it holds up under load.",
+    "I started freelancing in 2018, building React websites for restaurants. Since then, I have worked across logistics at GEFCO / CEVA / CMA CGM, defence at Thales, conversational AI at Pitchboy through ALTEN, and client assignments through Capgemini in the Netherlands. I have also taught at Epitech and in companies including Oxyl. I enjoy moving between backend work, the interfaces it supports and the testing that makes it dependable.",
   metrics: [
-    { value: "8", label: "years building software" },
-    { value: "4", label: "years in permanent roles" },
-    { value: "5", label: "product domains shipped" },
-    { value: "FR / EN / NL", label: "French, English, learning Dutch" },
+    { value: "2018", label: "started freelance development" },
+    { value: "2022", label: "first permanent engineering role" },
+    { value: "2025", label: "moved to the Netherlands" },
+    { value: "FR / EN", label: "native French, fluent English" },
   ],
   focusAreas: [
     {
-      title: "Backend systems",
+      title: "Backend & full-stack",
       description:
-        "Consistent APIs in TypeScript and Java, with an eye on concurrency, throughput, and the real cost of every call.",
+        "TypeScript and Node.js services, Java development, and the React and Angular interfaces around them. Experience in logistics, defence and healthcare training.",
     },
     {
-      title: "Full-stack delivery",
+      title: "Quality & delivery",
       description:
-        "React and TypeScript frontends over Node, NestJS and Express services, REST or GraphQL, deployed to AWS and GCP.",
+        "Client audits, QA, test integration and DevOps assignments, alongside application development and AWS delivery.",
     },
     {
-      title: "Quality systems",
+      title: "Teaching & learning",
       description:
-        "Tests, CI/CD and practical architecture that make shipping feel controlled rather than lucky.",
+        "Teaching at Epitech and Oxyl, learning new tools through personal projects, and continuing to improve my Dutch.",
     },
   ],
   experience: [
     {
-      period: "Apr 2025 - Sep 2026",
-      role: "Senior Software Engineer",
+      period: "2025 - 2026",
+      role: "Senior Product Software Engineer",
       company: "Capgemini Engineering",
-      description:
-        "Full-stack work with a strong backend orientation, at an advanced level of technical autonomy. Focused on multithreading, concurrency and code optimisation: how far a system can be pushed on efficiency, scalability and throughput. Studying Rust, Go and generative AI alongside the day job, and supporting colleagues across the TypeScript ecosystem.",
-      stack: ["TypeScript", "Java", "Node", "Concurrency", "GenAI"],
+      context: "Netherlands | Client assignments including Thales, IKEA and ENGIE",
+      bullets: [
+        "Joined for a Thales Netherlands assignment before moving to engagements for other Capgemini clients.",
+        "Carried out technical audits, QA, test integration and DevOps work, mainly with Node.js and TypeScript, with Java and Python on some assignments.",
+      ],
+      stack: ["TypeScript", "Node.js", "Java", "Python", "QA", "DevOps"],
     },
     {
-      period: "Jan 2024 - Nov 2024",
-      role: "Senior Full-stack Software Engineer",
+      period: "2024",
+      role: "Senior Product Software Engineer",
       company: "ALTEN",
-      description:
-        "Built a web application generating video, audio and text streams with AI for medical training and remote consultation. Designed and implemented the Virtual Patients system, sold to hospitals in France, which lets doctors train against simulated patient interactions. Established the automated testing framework in Jest and wired it into GitHub Actions so deployments to AWS could go out with confidence.",
-      stack: ["React", "NestJS", "Next.js", "MongoDB", "AWS", "Jest", "GPT", "Mistral"],
+      context: "France | Client: Pitchboy, conversational AI for healthcare training",
+      bullets: [
+        "Developed visual conversational agents for hospital training, extending Pitchboy's work on voice assistants. The product was sold to CHU Nice.",
+        "Built the React frontend and Node.js / TypeScript backend, with AWS hosting, Jest tests and GitHub Actions for CI/CD.",
+      ],
+      stack: ["React", "TypeScript", "Node.js", "AWS", "Jest", "GitHub Actions"],
     },
     {
-      period: "Jan 2023 - Dec 2023",
-      role: "Senior Full-stack Software Engineer",
+      period: "2023",
+      role: "Software Engineer",
       company: "Thales",
-      description:
-        "Started in test engineering with Cypress, Jest and Jenkins, holding the line on reliability across deployments. After security clearance, moved into development on the NCOP team building military-grade software for NATO. Worked in hexagonal architecture with asynchronous and functional patterns, keeping automated testing central to the CI/CD pipeline.",
-      stack: ["Angular", "TypeScript", "Node", "Java", "C#", "Cypress", "Jenkins"],
+      context: "France | NCOP team, defence software for NATO",
+      bullets: [
+        "Developed defence software with Java, Angular and Node.js / TypeScript; completed a software delivery during the year-long NCOP assignment.",
+        "Contributed to test automation with Cypress and Jest within Jenkins delivery workflows.",
+      ],
+      stack: ["Java", "Angular", "TypeScript", "Node.js", "Cypress", "Jest", "Jenkins"],
     },
     {
-      period: "Jan 2022 - Dec 2022",
-      role: "Medior Full-stack Software Engineer",
-      company: "CMA CGM",
-      description:
-        "Built container logistics monitoring for a large Scrum and Kanban team: a Node and Angular web application plus its Flutter mobile adaptation. Everything shipped through GitLab CI, which is where pipelines stopped being someone else's problem. The role grew outward into full-stack, DevOps and backend work, which is where microservices and cloud infrastructure first got their hooks in.",
-      stack: ["Angular", "Node", "Flutter", "AWS", "Docker", "Kubernetes", "GitLab CI", "MongoDB"],
+      period: "2022",
+      role: "Full-stack Software Engineer",
+      company: "GEFCO / CEVA / CMA CGM",
+      context: "France | Logistics team through changes of ownership",
+      bullets: [
+        "First permanent engineering role, in a logistics team that continued through GEFCO, CEVA and CMA CGM.",
+        "Worked across a Node.js / TypeScript backend, Angular web frontend and Flutter mobile app, with Bitbucket CI/CD and occasional AWS tasks.",
+      ],
+      stack: ["TypeScript", "Node.js", "Angular", "Flutter", "Bitbucket", "AWS"],
     },
     {
-      period: "Jun 2018 - Dec 2021",
-      role: "Freelance Developer and Trainer",
+      period: "2018 - 2021; later teaching assignments",
+      role: "Freelance Developer & Trainer",
       company: "Independent",
-      description:
-        "Applications, websites, games, scripts and Excel automation for restaurants, startups, hospitals and schools, including GraphQL APIs and a handful of React Native apps. Also taught web development and best practices to engineering students, often in night classes for the ones who needed the extra time.",
-      stack: ["Node", "TypeScript", "GraphQL", "React Native", "Python", "Ruby", "Flutter", "AWS", "GCP", "WordPress"],
+      context: "France | React websites and technical teaching",
+      bullets: [
+        "Started freelance development in July 2018, building React websites for restaurants, including QR-linked sites during the pandemic.",
+        "Returned to freelance teaching between later assignments, giving classes at Epitech and in companies including Oxyl.",
+      ],
+      stack: ["React", "Web development", "Teaching"],
     },
   ],
   education: [
-    {
-      year: "2022",
-      title: "Master, Computer Engineering",
-      institution: "Epitech, Paris",
-    },
-    {
-      year: "2017",
-      title: "Baccalaureat STI2D, Sciences",
-      institution: "France",
-    },
+    { year: "2022", title: "Computer Engineering", institution: "Epitech, Paris" },
   ],
   certifications: [
-    {
-      year: "2024",
-      title: "OCA, Oracle Certified Associate",
-      institution: "Oracle",
-    },
+    { year: "2024", title: "Oracle Certified Associate (OCA)", institution: "Oracle" },
   ],
   principles: [
-    "Prototype quickly, then harden what proves useful.",
-    "Keep interfaces simple and systems understandable.",
-    "Use tests and automation where they reduce real delivery risk.",
-    "Choose boring, proven tools unless the problem deserves novelty.",
+    "Understand the problem and the existing system before changing it.",
+    "Make technical choices that the next engineer can understand.",
+    "Share knowledge through teaching and practical explanations.",
+    "Use AI tools openly and take responsibility for the result.",
   ],
   languages: [
     { name: "French", level: "Native" },
     { name: "English", level: "Fluent" },
-    { name: "Dutch", level: "Learning" },
+    { name: "Dutch", level: "Basic, actively learning" },
   ],
+  aiDisclosure:
+    "This website was built with OpenAI Codex. My recent personal projects also use AI coding tools. They are a space to explore technology and discuss engineering decisions, separate from the professional assignments above.",
+  learning:
+    "Continuing to learn Rust and modern Java techniques, and improving my Dutch.",
   writing: {
     platform: "Wattpad",
     url: "https://www.wattpad.com/user/magenta_rudy",
@@ -152,29 +162,40 @@ export const profile = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  { title: "Backend", items: ["Node", "NestJS", "Express", "GraphQL", "Java", "Kotlin"] },
   {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Angular", "Tailwind"],
+    title: "Professional development",
+    description: "Used across the client and employment work above.",
+    items: ["TypeScript", "Node.js", "Java", "React", "Angular", "Flutter", "Python"],
+    professional: true,
   },
-  { title: "Mobile", items: ["Flutter", "React Native"] },
   {
-    title: "Cloud and infra",
-    items: ["AWS", "GCP", "Docker", "Kubernetes", "Serverless"],
+    title: "Professional delivery & quality",
+    description: "Tools used in application delivery, testing and client assignments.",
+    items: ["AWS", "Bitbucket", "GitHub Actions", "Jenkins", "Jest", "Cypress", "QA", "CI/CD"],
+    professional: true,
   },
-  { title: "Data", items: ["SQL", "PostgreSQL", "MongoDB"] },
   {
-    title: "Quality",
-    items: ["Jest", "Cypress", "CI/CD", "GitHub Actions", "GitLab CI", "Jenkins"],
+    title: "Personal projects",
+    description: "Recent hands-on work, including the PixelGuess backend and mobile demo.",
+    items: ["NestJS", "GraphQL", "PostgreSQL", "Prisma", "React Native", "Expo", "Next.js", "Bun"],
+    professional: false,
   },
-  { title: "Exploring", items: ["Rust", "Go", "LLMs"] },
+  {
+    title: "Continuing learning",
+    description: "Self-directed study and experimentation.",
+    items: ["Rust", "Modern Java", "AI coding tools"],
+    professional: false,
+  },
 ];
 
-export const allSkills = skillGroups.flatMap((group) => group.items);
+export const professionalSkills = skillGroups
+  .filter((group) => group.professional)
+  .flatMap((group) => group.items);
 
 export type Project = {
   name: string;
   type: string;
+  cv?: boolean;
   description: string;
   impact: string;
   stack: string[];
@@ -184,6 +205,17 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "PixelGuess API & mobile",
+    type: "Personal project | AI-assisted development",
+    cv: true,
+    description:
+      "A painting-recognition game with a NestJS GraphQL API, PostgreSQL / Prisma and an Expo / React Native client.",
+    impact:
+      "Explores server-controlled game state, authenticated image access and transaction retries, with regression tests for concurrency and answer disclosure.",
+    stack: ["NestJS", "TypeScript", "GraphQL", "PostgreSQL", "Prisma", "React Native"],
+    note: "Personal demo available to discuss. Separate project from the earlier Flutter prototype.",
+  },
   {
     name: "Dragoarbre",
     type: "Interactive planner",
@@ -217,12 +249,12 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/Radishoux/Ramy",
   },
   {
-    name: "Pixelguess",
-    type: "Mobile game",
+    name: "PixelGuess - Flutter prototype",
+    type: "Earlier personal prototype",
     description:
       "A Flutter guessing game built around progressive pixelation: the image resolves a little further with every wrong answer.",
     impact:
-      "Feature-complete at v1, including a pixelation service that had to be reworked to survive Flutter web.",
+      "Explores progressive image reveals in Flutter. The separate API and React Native project is featured above.",
     stack: ["Flutter", "Dart"],
     note: "Source not yet public",
   },

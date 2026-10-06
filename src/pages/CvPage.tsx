@@ -1,5 +1,5 @@
 import { SnakeGame } from '../components/SnakeGame';
-import { profile, skillGroups } from '../data/profile';
+import { profile, projects, skillGroups } from '../data/profile';
 
 export function CvPage() {
   return (
@@ -15,13 +15,14 @@ export function CvPage() {
         <header className="cv-header">
           <div>
             <p className="cv-name">{profile.name}</p>
-            <p className="cv-role">{profile.role}</p>
+            <p className="cv-role">{profile.role} · {profile.specialism}</p>
           </div>
           <ul className="cv-contact">
             <li>{profile.location}</li>
             <li>
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
             </li>
+            <li><a href={`tel:${profile.phone.replace(/ /g, '')}`}>{profile.phone}</a></li>
             <li>
               <a href={profile.github} target="_blank" rel="noreferrer">
                 github.com/Radishoux
@@ -50,12 +51,27 @@ export function CvPage() {
             <div className="cv-entry" key={`${item.company}-${item.period}`}>
               <div className="cv-entry-head">
                 <h3>
-                  {item.role}, {item.company}
+                  {item.company}
                 </h3>
                 <span>{item.period}</span>
               </div>
-              <p>{item.description}</p>
+              <p className="cv-entry-role">{item.role}</p>
+              <p className="experience-context">{item.context}</p>
+              <ul className="experience-points">
+                {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
               <p className="cv-stack">{item.stack.join(', ')}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="cv-section">
+          <h2>Selected personal project</h2>
+          {projects.filter((project) => project.cv).map((project) => (
+            <div className="cv-entry" key={project.name}>
+              <div className="cv-entry-head"><h3>{project.name}</h3><span>AI-assisted development</span></div>
+              <p>{project.description} {project.impact}</p>
+              <p className="cv-stack">{project.note}</p>
             </div>
           ))}
         </section>
@@ -87,12 +103,12 @@ export function CvPage() {
         </section>
 
         <section className="cv-section">
-          <h2>Skills</h2>
+          <h2>Technology experience</h2>
           <dl className="cv-definitions">
             {skillGroups.map((group) => (
               <div key={group.title}>
                 <dt>{group.title}</dt>
-                <dd>{group.items.join(', ')}</dd>
+                <dd>{group.items.join(', ')}<span className="cv-skill-context">{group.description}</span></dd>
               </div>
             ))}
           </dl>

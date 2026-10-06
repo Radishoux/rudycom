@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json && vite build",
+    "cv": "bun scripts/generate-cv.ts",
+    "build": "bun run cv && tsc --noEmit && tsc --noEmit -p tsconfig.node.json && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
