@@ -41,3 +41,6 @@ and [CEVA](https://www.cevalogistics.com/en/news-and-media/newsroom/ceva-creates
 
 Rudy clarified that the initial Pitchboy version used Node.js, TypeScript and React, and the later version sold to CHU Nice used NestJS. Record NestJS as professional experience at ALTEN/Pitchboy as well as in personal projects. Rejected limiting NestJS to personal work, and rejected attributing it to Capgemini without evidence. Exact scope and technical decisions remain interview follow-up topics.
 
+
+Rudy further confirmed personal implementation of NestJS modules, controllers and services integrating AI voice, text and video for simulated patient training. Include that concrete contribution. Do not infer named encryption controls, certifications or medical compliance from the stated privacy requirement.
+

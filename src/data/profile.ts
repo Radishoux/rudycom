@@ -70,7 +70,7 @@ export const profile = {
       context: "France | Client: Pitchboy, conversational AI for healthcare training",
       bullets: [
         "Developed visual conversational agents for hospital training: first with React and Node.js / TypeScript, then a NestJS version sold to CHU Nice.",
-        "Used AWS hosting, Jest tests and GitHub Actions for CI/CD.",
+        "Implemented NestJS modules, controllers and services for AI voice, text and video; AWS, Jest and GitHub Actions.",
       ],
       stack: ["React", "TypeScript", "Node.js", "NestJS", "AWS", "Jest", "GitHub Actions"],
     },
@@ -91,7 +91,7 @@ export const profile = {
       company: "GEFCO / CEVA",
       context: "France | Logistics, now part of CMA CGM Group",
       bullets: [
-        "Joined GEFCO in my first permanent engineering role in 2022. GEFCO was acquired by CMA CGM and later integrated into CEVA.",
+        "Started my first permanent engineering role at GEFCO in 2022, the year CMA CGM acquired the company.",
         "Worked across a Node.js / TypeScript backend, Angular web frontend and Flutter mobile app, with Bitbucket CI/CD and occasional AWS tasks.",
       ],
       stack: ["TypeScript", "Node.js", "Angular", "Flutter", "Bitbucket", "AWS"],
