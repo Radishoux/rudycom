@@ -6,7 +6,9 @@ export type SkillGroup = {
 };
 
 export const profile = {
-  name: "Rudy Quinternet",
+  name: "Rudy Morisot Quinternet",
+  initials: "RMQ",
+  cvFilename: "Rudy_Morisot_Quinternet_Software_Engineer_CV.pdf",
   role: "Senior Software Engineer",
   specialism: "Backend & full-stack",
   location: "Driebergen-Zeist, Netherlands",
@@ -126,7 +128,7 @@ export const profile = {
     { name: "Dutch", level: "Basic, actively learning" },
   ],
   aiDisclosure:
-    "This website was built with OpenAI Codex. My recent personal projects also use AI coding tools. They are a space to explore technology and discuss engineering decisions, separate from the professional assignments above.",
+    "My recent personal projects use AI coding tools. They are a space to explore technology and discuss engineering decisions, separate from the professional assignments above.",
   learning:
     "Continuing to learn Rust and modern Java techniques, and improving my Dutch.",
   writing: {

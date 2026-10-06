@@ -44,3 +44,13 @@ Rudy clarified that the initial Pitchboy version used Node.js, TypeScript and Re
 
 Rudy further confirmed personal implementation of NestJS modules, controllers and services integrating AI voice, text and video for simulated patient training. Include that concrete contribution. Do not infer named encryption controls, certifications or medical compliance from the stated privacy requirement.
 
+
+## 2026-10-07 - Full professional name
+
+Use Rudy Morisot Quinternet throughout the profile, page metadata and PDF metadata. Derive the header name and PDF download filename from profile data. Use RMQ for the monogram. The download button uses the full-name filename; the former PDF URL remains an identical generated alias. Rejected breaking existing CV links and duplicating the display name in the header or PDF renderer.
+
+
+## 2026-10-07 - Website footer credit
+
+At the owner's request, replace the Codex website attribution with made with a heart by Radishoux Rudy Magenta, linked to the existing GitHub profile. Remove the duplicate website attribution from the project introduction. Retain the existing context for AI-assisted personal projects; this request concerns website branding. Rejected changing unrelated account handles or breaking existing profile links.
+

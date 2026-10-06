@@ -1,4 +1,4 @@
-# Rudy Quinternet - personal website
+# Rudy Morisot Quinternet - personal website
 
 [Website](https://radishoux.github.io/rudycom/) · [CV](https://radishoux.github.io/rudycom/#/cv)
 
@@ -8,8 +8,8 @@ defence, conversational AI and consulting, alongside technical teaching.
 
 The site distinguishes professional technology experience, personal projects and
 continuing learning. Consulting employers and their clients are identified
-separately. This website was built with OpenAI Codex; recent personal projects
-also use AI coding tools.
+separately. The footer credits Radishoux Rudy Magenta and links to GitHub.
+Recent personal projects use AI coding tools.
 
 ## Run locally
 
@@ -36,8 +36,9 @@ content and clickable contacts, enforces one A4 page, type-checks and builds the
 site. Review the PDF and website visually before publishing.
 
 GitHub Actions deploys pushes to `master` or `main` to GitHub Pages. The public
-filename stays `Rudy_Quinternet_Software_Engineer_CV.pdf` to preserve existing
-links. The build generates it before Vite copies it into `dist/`.
+filename is `Rudy_Morisot_Quinternet_Software_Engineer_CV.pdf`. The previous
+`Rudy_Quinternet_Software_Engineer_CV.pdf` URL serves an identical copy to preserve
+existing links. The build generates both before Vite copies them into `dist/`.
 
 The dark theme, portrait, particle background, responsive layouts, CV print
 styles and reduced-motion support remain part of the site.

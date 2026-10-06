@@ -90,7 +90,10 @@ export function App() {
 
       <footer className="footer">
         <p>{profile.name}</p>
-        <p>Built with OpenAI Codex</p>
+        <p>
+          made with <span aria-label="love">♥</span> by{' '}
+          <a href={profile.github} target="_blank" rel="noreferrer">Radishoux Rudy Magenta</a>
+        </p>
         <p>{profile.availability}</p>
       </footer>
 

@@ -45,7 +45,7 @@ after pushing; a local build is not a deployment.
 - `scripts/generate-cv.ts`: imports content with Bun and sends JSON to Python.
 - `scripts/render-cv.py`: PDF layout and post-generation validation.
 - `scripts/requirements.txt`: pinned generation and validation dependencies.
-- `public/`: portrait and generated `Rudy_Quinternet_Software_Engineer_CV.pdf`.
+- `public/`: portrait and generated `Rudy_Morisot_Quinternet_Software_Engineer_CV.pdf`, plus an identical copy at the previous PDF filename for existing links.
 - `dist/`: generated production output; never hand-edit.
 
 Content does not import presentation. Pages and the generator import content;
@@ -62,6 +62,11 @@ Use the same role names, periods and bullets on the work page, CV page and PDF.
 Use date precision supported by the owner's account. Never infer an employment
 start from a relocation date. Make later corrections in this module.
 
+The header, footer, structured data and PDF identity use `profile.name`; the
+header monogram uses `profile.initials`. `profile.cvFilename` supplies the
+canonical generation path and download link. Static search/social metadata in
+`index.html` must be updated alongside name changes.
+
 Skill groups describe where technologies were used. Only `professional: true`
 groups supply `professionalSkills` in structured data. Personal and learning
 tools must not silently become professional claims. `Project.cv` selects a
@@ -69,8 +74,9 @@ project for the PDF and on-screen CV. Project names are unique React keys;
 links are optional and must represent real destinations.
 
 PixelGuess API & mobile is the NestJS/React Native personal project; the Flutter
-prototype is separate. AI assistance is disclosed on the work page, footer and
-selected CV project. Keep confidential implementation details, recruiter
+prototype is separate. AI assistance is disclosed for personal projects on the
+work page and selected CV project. The footer credits Radishoux Rudy Magenta
+and links to GitHub. Keep confidential implementation details, recruiter
 correspondence, salary history and private source documents outside this repo.
 
 ## End-to-end CV flow
@@ -80,7 +86,8 @@ correspondence, salary history and private source documents outside this repo.
    JSON via stdin to Python; no intermediate personal-data file is written.
 3. ReportLab lays out the PDF with standard PDF fonts and clickable contacts.
    pypdf reopens it and checks page count, shared text and link destinations.
-4. Vite builds the site and copies the PDF from `public/` into `dist/`.
+4. Bun copies the validated PDF to the previous filename for backward-compatible
+   links. Vite builds the site and copies both PDFs from `public/` into `dist/`.
 5. Pages publishes `dist/`. The `#/cv` button uses Vite's base URL to download
    the PDF; the page itself renders the shared data in React.
 

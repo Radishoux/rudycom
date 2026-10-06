@@ -1,4 +1,5 @@
 import { navigate, type Route } from '../hooks/useRoute';
+import { profile } from '../data/profile';
 
 type HeaderProps = {
   route: Route;
@@ -21,8 +22,8 @@ export function Header({ route }: HeaderProps) {
           navigate('home');
         }}
       >
-        <span className="brand-mark">RQ</span>
-        <span className="brand-name">Rudy Quinternet</span>
+        <span className="brand-mark">{profile.initials}</span>
+        <span className="brand-name">{profile.name}</span>
       </a>
 
       <nav aria-label="Main">

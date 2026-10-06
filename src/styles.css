@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Rudy Quinternet — personal site
+   Rudy Morisot Quinternet — personal site
    Dark, single theme. Deliberate: the palette is the brand and the owner
    signed off on it. The CV print stylesheet at the end covers the one case
    where a light rendering is genuinely needed.
@@ -1252,6 +1252,12 @@ button {
 
 .footer p {
   margin: 0;
+}
+
+.footer a {
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 /* -------------------------------------------------------------- reveal --- */

@@ -93,7 +93,7 @@ for item in profile['education'] + profile['certifications']:
 story.append(p(' | '.join(f"{x['name']}: {x['level'].lower()}" for x in profile['languages'])))
 
 doc = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=36, leftMargin=36,
-                        topMargin=30, bottomMargin=27, title='Rudy Quinternet - Senior Software Engineer',
+                        topMargin=30, bottomMargin=27, title=f"{profile['name']} - {profile['role']}",
                         author=profile['name'], subject='Career, technical experience and selected personal project',
                         invariant=1, pageCompression=1)
 doc.build(story)
