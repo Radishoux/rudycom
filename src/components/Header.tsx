@@ -17,12 +17,13 @@ export function Header({ route }: HeaderProps) {
       <a
         className="brand"
         href="#/"
+        aria-label={`${profile.name} — Home`}
         onClick={(event) => {
           event.preventDefault();
           navigate('home');
         }}
       >
-        <span className="brand-mark">{profile.initials}</span>
+        <span className="brand-mark" aria-hidden="true">{profile.initials}</span>
         <span className="brand-name">{profile.name}</span>
       </a>
 

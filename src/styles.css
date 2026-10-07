@@ -189,9 +189,9 @@ button {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--accent-soft);
-  font-size: 0.76rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   transition: transform 320ms var(--ease-out);
 }
 

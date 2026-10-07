@@ -63,7 +63,9 @@ Use date precision supported by the owner's account. Never infer an employment
 start from a relocation date. Make later corrections in this module.
 
 The header, footer, structured data and PDF identity use `profile.name`; the
-header monogram uses `profile.initials`. `profile.cvFilename` supplies the
+header monogram uses `profile.initials` (the single letter R). The home link's
+accessible label retains the full name, including when the visible name is
+hidden on small screens. `profile.cvFilename` supplies the
 canonical generation path and download link. Static search/social metadata in
 `index.html` must be updated alongside name changes.
 

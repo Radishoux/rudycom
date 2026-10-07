@@ -54,3 +54,10 @@ Use Rudy Morisot Quinternet throughout the profile, page metadata and PDF metada
 
 At the owner's request, replace the Codex website attribution with made with a heart by Radishoux Rudy Magenta, linked to the existing GitHub profile. Remove the duplicate website attribution from the project introduction. Retain the existing context for AI-assisted personal projects; this request concerns website branding. Rejected changing unrelated account handles or breaking existing profile links.
 
+## 2026-10-07 - Single-letter header mark
+
+Use a larger R in the header's home link, as requested by the owner. This
+supersedes the RMQ monogram. Retain the full name in the accessible link label.
+Rejected the three-letter mark because it felt cramped; chose the owner's
+single-letter option over a miniature portrait for clarity at 34px.
+

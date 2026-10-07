@@ -7,7 +7,7 @@ export type SkillGroup = {
 
 export const profile = {
   name: "Rudy Morisot Quinternet",
-  initials: "RMQ",
+  initials: "R",
   cvFilename: "Rudy_Morisot_Quinternet_Software_Engineer_CV.pdf",
   role: "Senior Software Engineer",
   specialism: "Backend & full-stack",
